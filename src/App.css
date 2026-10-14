@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.root-container {
+    min-height: calc(100vh - 8 * 2px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 64px;
+    gap: 100px;
+    background-image: url("green.jpg");
+    background-size: cover;
+}
+
+@utility bt {
+    @apply border-[#A1C181] border;
+}
+
+.notch.notch-bar-2 {
+    --notch-height: 40px;
+    --notch-bar-color: #000;
+    --notch-ic-width: 6px;
+    /*position: absolute;
+    top: 0px;*/
+    height: var(--notch-height);
+    background: var(--notch-bar-color);
+}
+
+.notch-bar-2::before {
+    /*--notch-ic-width: 6px;*/
+    --notch-ic-height: calc(1 * var(--notch-ic-width));
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: calc((-0.98) * var(--notch-ic-width));
+    width: var(--notch-ic-width);
+    height: var(--notch-ic-height);
+    background: radial-gradient(
+        circle at 0% 100%,
+        transparent 70%,
+        var(--notch-bar-color) 70%
+    );
+    /*clip-path: inset(0 0 10% 0);*/
+}
+
+.notch-bar-2::after {
+    /*--notch-ic-width: 6px;*/
+    --notch-ic-height: calc(1 * var(--notch-ic-width));
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: calc((-0.98) * var(--notch-ic-width));
+    width: var(--notch-ic-width);
+    height: var(--notch-ic-height);
+    background: radial-gradient(
+        circle at 100% 100%,
+        transparent 70%,
+        var(--notch-bar-color) 70%
+    );
+    clip-path: inset(0 0 10% 0);
+}

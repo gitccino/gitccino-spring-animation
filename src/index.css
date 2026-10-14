@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "MonoLisa";
+    src: url("https://fonts-cdn.gitccino.com/monolisa/monolisa-400.woff2")
+        format("woff2");
+    font-weight: 400;
+    font-display: normal;
+}
+
+:root {
+    --font-monolisa: "MonoLisa", monospace;
+    --text: #000;
+    --bg: #000;
+    color: var(--text);
+    background: var(--bg);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+}
+
+/*@media (prefers-color-schema: dark) {
+    :root {
+        --text: #fff;
+        --bg: #000;
+    }
+}*/
+
+@theme inline {
+    --font-mono: var(--font-monolisa);
+}
+
+@layer base {
+    body {
+        @apply font-mono tracking-tighter;
+    }
+    /** {
+        @apply border-border outline-ring/50;
+    }*/
+    html {
+        @apply font-mono;
+    }
+}
